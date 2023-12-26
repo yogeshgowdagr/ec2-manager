@@ -1,0 +1,9 @@
+version: '3'
+
+name: ec2-manager
+services:
+    aws_ec2_resource_state_control:
+        ports:
+            - 5000:5000
+        restart: always
+        image: yogeshgowdagr/aws_ec2_resource_state_control:latest

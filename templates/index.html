@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>EC2 Instance Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Manage Your EC2 Instances</h1>
+        </div>
+        <div class="form-section">
+            <h2>Instance Controls</h2>
+            <!-- Flash messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <!-- /Flash messages -->
+            <form method="POST">
+                <label for="access_key">Access Key:</label>
+                <input type="text" id="access_key" name="access_key" required>
+                
+                <label for="secret_key">Secret Key:</label>
+                <input type="text" id="secret_key" name="secret_key" required>
+                
+                <label for="region">Region:</label>
+                <input type="text" id="region" name="region" placeholder="us-west-2" required>
+        
+                <label for="instance_id">Instance ID (Optional if tag provided):</label>
+                <input type="text" id="instance_id" name="instance_id">
+                
+                <label for="tag">Tag Key (Optional):</label>
+                <input type="text" id="tag" name="tag">
+                
+                <label for="tag_value">Tag Value (Optional):</label>
+                <input type="text" id="tag_value" name="tag_value">
+                
+                <input type="submit" name="start" value="Start Instances">
+                <input type="submit" name="stop" value="Stop Instances">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
