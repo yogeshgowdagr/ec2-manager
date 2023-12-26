@@ -6,3 +6,19 @@ Turn on and off the instances with just a click
 you can host this with the simple machine , anyway this will not consume mucah resources . 
 
 Note: use SSL when using online or live 
+
+To start and test 
+
+Pull the Repo
+
+```
+https://github.com/yogeshgowdagr/ec2-manager.git
+```
+```
+cd ec2-manager
+```
+start the containers 
+```
+docker-compose up -d
+```
+
